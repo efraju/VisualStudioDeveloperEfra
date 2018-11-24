@@ -23,18 +23,30 @@ namespace DataAccess
         // Albums
         public IRepository<Album> Albums { get; private set; }
 
+        public ICustomerRepositorie Customers { get; private set; }
+
+        public IRepository<Student> Students { get; private set; }
+
         public readonly DatabaseContext _context;
 
         public UnitOfWork(DatabaseContext context)
         {
             _context = context;
             // no olvidar inicializar todos los repositorios que se van a utilizar en este unit of work
+            Customers = new CustomerRepository(_context);
             Artists = new ArtistRepository(_context);
             Tracks = new TrackRepository(_context);
             Playlists = new Repository<Playlist>(_context);
             Genres = new Repository<Genre>(_context);
             MediaTypes = new Repository<MediaType>(_context);
             Albums = new Repository<Album>(_context);
+            Students = new Repository<Student>(_context);
+
+
+
+
+
+
         }
 
         public int Complete()

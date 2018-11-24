@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,5 +35,26 @@ namespace DataAccess.Repositories
             // insertar cada artista a la BD (a través del context)
             lista.ForEach(artist => Context.Artist.Add(artist));
         }
+
+        public IEnumerable<GetArtistModel> PaginatedArtistList(string searchTerm, int page, int rows)
+        {
+            var param1 = new SqlParameter {
+                ParameterName= "searchTerm",
+            Value=searchTerm};
+            var param2 = new SqlParameter
+            {
+                ParameterName = "page",
+                Value = page
+            };
+            var param3 = new SqlParameter
+            {
+                ParameterName = "rows",
+                Value = rows
+            };
+            return Context.Database.SqlQuery<GetArtistModel>("Paginated_Artist_List @searchTerm,@page,@rows", param1,param2,param3).ToList();
+              
+        }
+
+ 
     }
 }

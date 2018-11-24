@@ -1,0 +1,14 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CibertecTemplate.master.cs" Inherits="WebFormCibertec.Site.CibertecTemplate" %>
+
+<asp:Content ID="TemplateContent" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="row">
+        <asp:ContentPlaceHolder ID="ButtonContent" runat="server">
+            <div class="row"
+                style="margin-top:10px;margin.bottom:10px"></div>
+
+        </asp:ContentPlaceHolder>
+    </div>
+    <asp:ContentPlaceHolder ID="ArtistContent" runat="server">
+
+    </asp:ContentPlaceHolder>
+</asp:Content>

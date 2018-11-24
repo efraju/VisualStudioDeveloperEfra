@@ -30,6 +30,9 @@ namespace DataAccess
         public virtual DbSet<Playlist> Playlist { get; set; }
         public virtual DbSet<Track> Track { get; set; }
 
+        public virtual DbSet<Student> Student { get; set; }
+
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

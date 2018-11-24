@@ -16,6 +16,8 @@ namespace DataAccess
         IRepository<Genre> Genres { get; }
         IRepository<MediaType> MediaTypes { get; }
         IRepository<Album> Albums { get; }
+        ICustomerRepositorie Customers { get; }
+        IRepository<Student> Students { get; }
         int Complete();
     }
 }

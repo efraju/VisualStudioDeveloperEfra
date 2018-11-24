@@ -12,5 +12,6 @@ namespace DataAccess.Repositories
         Artist GetByName(string name);
         IEnumerable<Artist> GetListOfArtistSP();
         void InsertarRegistrosPrueba();
+        IEnumerable<GetArtistModel> PaginatedArtistList(string searchTerm,int page,int rows);
     }
 }
